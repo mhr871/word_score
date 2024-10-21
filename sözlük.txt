@@ -1,0 +1,137 @@
+lasting;kalıcı,dayanıklı
+status go;mevcut durum
+drench;ıslatmak,ıslak
+call in;çağırmak
+article;makale,eşya
+initiate;başlatmak,başlamak
+launch;başlatmak
+difference;fark
+similarity;benzerlik
+be puzzled;şaşırmak,şaşkın
+aid;yardım
+intent;niyet
+mainly;sadece
+solely;sadece
+be bothered;rahatsız olmak
+surrender;teslim olmak
+give in;boyun eğmek,teslim olmak
+lawsuit;dava
+order;emir,düzen
+say for sure;kesin söylemek
+industrious;çalışkan
+lazy;tembel
+negotiate;müzakere,görüşme
+discuss;tartışmak
+burn down;yanıp kül olmak
+depth;derinlik
+extent;kapsam,kapsamak
+later on;daha sonra
+previously;önceden
+utter;söylemek
+partial;kısmi
+inspection;denetim
+look over;gözden geçirmek
+ignore;göz ardı etmek,gizlemek
+get rid of;kurtulmak,başından savmak
+examine;incelemek
+necessity;gereklilik
+convey;iletmek,iletim
+fascinate;büyülemek,büyüleyici
+benefit;fayda,yarar
+no longer;artık
+gain;kazanmak,kazanç
+cheer up;neşeli
+raise;artırmak,yükselmek
+cope with;başa çıkmak,üstesinden gelmek
+overcome;üstesinden gelmek
+in shame;utanç,utanmak
+abolish;yürürlükten kaldırmak,yok etmek
+spy;casus,muhbir
+informer;muhbir,casus
+candidate;aday
+deny;inkar
+debtor;borçlu
+creditor;borç veren
+result;sonuç
+official;resmi,memur
+consequence;sonuç
+behavior;davranış
+confirm;onaylamak,onay
+claim;iddia
+ratify;onaylamak,onay
+theft;hırsızlık,hırsız,soygun
+robbery;soygun,hırsızlık
+fragment;parça
+whole;bütün
+bond;bağ,bağlantı
+issue;konu
+topic;konu
+deliberately;kasten,bilerek
+confide;güvenmek,güven
+yield to;boyun eğmek
+sort out;çözmek,çözüm
+show to;göstermek
+do up;bağlamak
+tie;bağlamak
+take off;havalanmak,kalkış
+call out;seslenmek,çağırmak
+make up;uydurmak
+hold on;beklemek
+check in;giriş yapmak
+check out;çıkış yapmak
+seemingly;gösteriş
+by far;açık ara,ziyadesiyle
+premises;bina,mülk
+allege;iddia etmek,iddia
+scarcely;ucu ucuna
+tiptoe;parmak ucunda yürümek
+debater;tartışma
+disputant;tartışma
+participant;katılımcı
+implement;uygulamak,gerçekleştirmek
+execute;gerçekleştirmek,uygulamak
+bear;katlanmak,dayanmak
+conflict;çatışma,zıtlık
+to be bound;bağlı olmak,bağımlı
+famine;kıtlık,yokluk
+dearth;kıtlık,yokluk
+abundance;bolluk
+explode;patlamak
+dryness;kuruluk,kuru,kuraklık
+deluge;sel,sağanak
+poverty;yoksul,fakir
+want;yoksul,fakir
+wealth;zenginlik
+revise;incelemek,gözden geçirmek
+review;incelemek,gözden geçirmek
+well-off;zengin
+poor;fakir
+smooth;düzgün,yumuşak
+even;eşit,düzgün
+vacant;boş
+empty;boş
+surface;yüzey
+superficial;yüzeysel
+deep;derin
+versatile;çok yönlü,becerikli
+vast;geniş,muazzam
+tiny;küçük
+immense;muazzam,geniş
+include;içermek,dahil etmek
+cause;sebep olmak
+prevent;önlemek
+relentless;amansız
+mild;hafif
+ruthless;acımasız
+enhance;artırmak,zenginleştirmek
+enrich;zenginleştirmek,artırmak
+captivate;büyülemek
+testimony;tanıklık,ifade
+repel;reddetmek
+statement;ifade
+succumb;yenik düşmek,yenilmek
+demolition;yıkım
+building;bina,inşa etmek
+annihilation;yok etmek
+imaginative;yaratıcı,hayal gücü yüksek
+admittedly;kabul etmek gerekirse,doğrusu
