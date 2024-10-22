@@ -1,33 +1,33 @@
 # Word_Score
-### Açıklama  
-Word Score, kullanıcıların belirli kelimelerin puanlarını hesaplamasına ve analiz etmesine olanak tanıyan basit ve kullanışlı bir Python uygulamasıdır. Bu proje, kelime oyunları ve dil becerilerini geliştirmek isteyenler için eğlenceli ve öğretici bir araçtır.
+### Description  
+Word Score is a simple and user-friendly Python application that allows users to calculate and analyze the scores of specific words. This project serves as a fun and educational tool for those looking to improve their language skills and enjoy word games.
 
-### Özellikler
-- **Kelime Puanlama:** Kullanıcıların girdiği kelimelerin puanlarını hesaplar ve görüntüler.
-- **Veri Kaydetme:** Kullanıcıların daha önce öğrendikleri kelimeleri kaydetmelerine ve oyun sonunda erişmelerine olanak tanır.
-- **Kullanıcı Dostu Arayüz:** Basit ve anlaşılır bir arayüz ile kullanıcıların kolayca ve sıkılmadan oynamasını sağlar.
-- Sizde istediğiniz kelimeleri benzer formda sözlüğe yükleyerek özelleştirebilirsiniz.
+### Features
+- **Word Scoring:** Calculates and displays the scores of words entered by users.
+- **Data Saving**Allows users to save previously learned words and access them at the end of the game.
+- **User-Friendly Interface:** Provides a simple and understandable interface, ensuring users can play easily and without boredom.
+- Users can customize by uploading their desired words to a similar dictionary format.
  
-### GEREKLİLİKLER
-- Python IDE'si (VSCode, PyCharm, Spyder vb.)
+### Requirements
+- Python IDE (VSCode, PyCharm, Spyder)
 ```bash
 https://code.visualstudio.com/download
 ```
-- Gerekli kütüphanelerin yüklenmesi: IDE terminalini açın ve aşağıdaki komutları girin.
+- Install the necessary libraries: Open the IDE terminal and enter the following commands:
 ```bash
 pip install random
 pip install tkinter
   ```
- ### Kurulum
- 1. Bu repository'yi seçili dizine klonlayın
+ ### Installation
+ 1. Clone this repository to your selected directory
   ```bash
   git clone https://github.com/mhr871/word_score.git
   ```
- 2. word_score.py dosyasını çalıştırın
- 3. *Sözlük.txt* dizinini kod içindeki ilgili alana ekleyin
+ 2. Run the word_score.py file.
+ 3.Add the *dictionary.txt* directory to the relevant section in the code.
 
-  ##### Hatırlatma 
-****sözlük.txt dosyasının başlığını kaldırmayı unutmayın ***
+  ##### Reminder 
+***Don't forget to remove the header of the dictionary.txt file! ***
   
 
 
