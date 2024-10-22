@@ -2,119 +2,115 @@ import tkinter as tk
 from tkinter import messagebox
 import random
 
-def kelimeleri_yukle(dosya_yolu):
-    kelimeler = []
-    with open(dosya_yolu, 'r', encoding='utf-8') as file:
+def load_words(file_path):
+    words = []
+    with open(file_path, 'r', encoding='utf-8') as file:
         for line in file:
-            line = line.strip()  # Satırdaki boşlukları temizle
-            if line:  # Boş satırları atla
-                parts = line.split(';')  # Ayracı ';' olarak değiştirin
-                if len(parts) == 2:  # İki parçaya ayrılıp ayrılmadığını kontrol et
-                    kelime, anlam = parts
-                    kelimeler.append((kelime.strip(), anlam.strip()))  # Boşlukları temizle
+            line = line.strip()  
+            if line:  
+                parts = line.split(';')
+                if len(parts) == 2:  
+                    word, meaning = parts
+                    words.append((word.strip(), meaning.strip())) 
                 else:
-                    print(f"Uygun formatta olmayan satır atlandı: {line}")
-    return kelimeler
+                    print(f"Skipped line with incorrect format: {line}")
+    return words
 
-def sorulari_olustur(kelimeler):
-    sorular = []
-    # Toplam 30 soru oluşturma
-    for kelime, anlam in random.sample(kelimeler, min(30, len(kelimeler))):  # 30'dan fazla kelime varsa, 30 rastgele seç
-        yanlislar = random.sample([k[1] for k in kelimeler if k[1] != anlam], 4)
-        secenekler = random.sample([anlam] + yanlislar, 5)
-        sorular.append((kelime, anlam, secenekler))
-    return sorular
+def create_questions(words):
+    questions = []
+    for word, meaning in random.sample(words, min(30, len(words))):  
+        wrong_answers = random.sample([w[1] for w in words if w[1] != meaning], 4)
+        options = random.sample([meaning] + wrong_answers, 5)
+        questions.append((word, meaning, options))
+    return questions
 
-class SinavApp:
-    def __init__(self, master, kelimeler):
+class QuizApp:
+    def __init__(self, master, words):
         self.master = master
         self.master.geometry("600x400")
-        self.master.title("Kelime Sınavı - Türkçe")
-        self.master.configure(bg="#8F9B77")  # Haki yeşil arka plan rengi
+        self.master.title("Word Quiz - English")
+        self.master.configure(bg="#8F9B77")  
+        self.words = words
+        self.questions = create_questions(words)
+        self.question_index = 0
+        self.correct_count = 0
+        self.answers = []
 
-        self.kelimeler = kelimeler
-        self.sorular = sorulari_olustur(kelimeler)
-        self.soru_index = 0
-        self.dogru_sayisi = 0
-        self.cevaplar = []
-
-        self.soru_label = tk.Label(master, text="", wraplength=400, bg="#8F9B77", font=("Arial", 20))
-        self.soru_label.pack(pady=20)
+        self.question_label = tk.Label(master, text="", wraplength=400, bg="#8F9B77", font=("Arial", 20))
+        self.question_label.pack(pady=20)
 
         self.var = tk.StringVar()  
-        self.secenek_buttons = []
+        self.option_buttons = []
 
-        # Seçenek butonlarının konumunu ortalayacak şekilde düzenleme
         button_frame = tk.Frame(master, bg="#8F9B77")
         button_frame.pack(pady=10)
 
         for i in range(5):
             button = tk.Radiobutton(button_frame, text="", variable=self.var, value="", font=("Arial", 12), bg="#8F9B77",
-                                    command=self.secenek_secildi)  # Seçenek seçildiğinde kontrol için
+                                    command=self.option_selected)  
             button.grid(row=i, column=0, sticky="w", padx=10, pady=5)
-            self.secenek_buttons.append(button)
+            self.option_buttons.append(button)
 
-        self.ilerle_button = tk.Button(master, text="İlerle", command=self.ilerle, font=("Arial", 20), width=10, height=2,
+        self.next_button = tk.Button(master, text="Next", command=self.next_question, font=("Arial", 20), width=10, height=2,
                                        highlightbackground="lightgreen", activebackground="green", 
-                                       fg="#8F9B77", bg="brown", state=tk.DISABLED)  # Başlangıçta devre dışı
-        self.ilerle_button.pack(pady=10)
+                                       fg="#8F9B77", bg="brown", state=tk.DISABLED) 
+        self.next_button.pack(pady=10)
 
-        self.soru_goster()
+        self.show_question()
 
-    def soru_goster(self):
-        if self.soru_index < len(self.sorular):
-            kelime, anlam, secenekler = self.sorular[self.soru_index]
-            self.soru_label.config(text=f"{self.soru_index + 1}. {kelime} anlamı nedir?")
-            self.var.set(None)  # Seçenekleri sıfırlama
-            for i, button in enumerate(self.secenek_buttons):
-                button.config(text=secenekler[i], value=secenekler[i])
-            self.ilerle_button.config(state=tk.DISABLED) 
+    def show_question(self):
+        if self.question_index < len(self.questions):
+            word, meaning, options = self.questions[self.question_index]
+            self.question_label.config(text=f"{self.question_index + 1}. What is the meaning of '{word}'?")
+            self.var.set(None) 
+            for i, button in enumerate(self.option_buttons):
+                button.config(text=options[i], value=options[i])
+            self.next_button.config(state=tk.DISABLED) 
 
         else:
-            self.sonuc_goster()
+            self.show_results()
 
-    def secenek_secildi(self):
-    
+    def option_selected(self):
         if self.var.get():
-            self.ilerle_button.config(state=tk.NORMAL)
+            self.next_button.config(state=tk.NORMAL)
         else:
-            self.ilerle_button.config(state=tk.DISABLED)
+            self.next_button.config(state=tk.DISABLED)
 
-    def ilerle(self):
+    def next_question(self):
         if not self.var.get(): 
-            messagebox.showwarning("Uyarı", "Lütfen bir seçenek işaretleyin.")
+            messagebox.showwarning("Warning", "Please select an option.")
             return
 
-        secilen = self.var.get()
-        dogru = self.sorular[self.soru_index][1]
-        self.cevaplar.append((self.soru_index + 1, secilen, dogru))
-        if secilen == dogru:
-            self.dogru_sayisi += 1
-        self.soru_index += 1
-        self.soru_goster()
+        selected = self.var.get()
+        correct = self.questions[self.question_index][1]
+        self.answers.append((self.question_index + 1, selected, correct))
+        if selected == correct:
+            self.correct_count += 1
+        self.question_index += 1
+        self.show_question()
 
-    def sonuc_goster(self):
-        toplam_soru = len(self.sorular)
-        yanlis_sayisi = toplam_soru - self.dogru_sayisi
+    def show_results(self):
+        total_questions = len(self.questions)
+        wrong_count = total_questions - self.correct_count
 
-        if toplam_soru == 0:
-            messagebox.showinfo("Sonuç", "Hiç soru sorulmadı.")
+        if total_questions == 0:
+            messagebox.showinfo("Results", "No questions were asked.")
             return
 
-        basari_yuzdesi = (self.dogru_sayisi / toplam_soru) * 100
+        success_rate = (self.correct_count / total_questions) * 100
 
-        sonuc_mesaji = f"Doğru Sayısı: {self.dogru_sayisi}\nYanlış Sayısı: {yanlis_sayisi}\nBaşarı Yüzdesi: {basari_yuzdesi:.2f}%"
-        messagebox.showinfo("Sonuç", sonuc_mesaji)
+        result_message = f"Correct Answers: {self.correct_count}\nWrong Answers: {wrong_count}\nSuccess Rate: {success_rate:.2f}%"
+        messagebox.showinfo("Results", result_message)
 
-        for index, (soru_index, verilen_cevap, dogru_cevap) in enumerate(self.cevaplar):
-            if verilen_cevap != dogru_cevap:
-                mesaj = f"{soru_index}. Soru: {self.sorular[soru_index - 1][0]}\nYanlış Cevap: {verilen_cevap}\nDoğru Cevap: {dogru_cevap}"
-                messagebox.showinfo("Yanlış Cevap", mesaj)
+        for index, (question_index, given_answer, correct_answer) in enumerate(self.answers):
+            if given_answer != correct_answer:
+                message = f"Question {question_index}: '{self.questions[question_index - 1][0]}'\nWrong Answer: {given_answer}\nCorrect Answer: {correct_answer}"
+                messagebox.showinfo("Wrong Answer", message)
 
 def main():
-    kelimeler = kelimeleri_yukle("C:/Users/ABDURRAHMAN/MATLAB/Desktop/PYTHON ÇALIŞMALAR/sözlük.txt")
+    words = load_words("your_path_dictionary")
     root = tk.Tk()
-    app = SinavApp(root, kelimeler)
+    app = QuizApp(root, words)
     root.mainloop()
 
 if __name__ == "__main__":
