@@ -1,3 +1,4 @@
+.........WORDS...........(delete_while_running)
 lasting;kalıcı,dayanıklı
 status go;mevcut durum
 drench;ıslatmak,ıslak
