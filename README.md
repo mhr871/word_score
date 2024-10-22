@@ -27,7 +27,7 @@ pip install tkinter
  3.Add the *dictionary.txt* directory to the relevant section in the code.
 
   ##### Reminder 
-***Don't forget to remove the header of the dictionary.txt file! ***
+***Don't forget to remove the header of the dictionary.txt file!***
   
 
 
