@@ -108,7 +108,7 @@ class QuizApp:
                 messagebox.showinfo("Wrong Answer", message)
 
 def main():
-    words = load_words("your_path_dictionary")
+    words = load_words("C:/python_studies/word_score/dictionary.txt")
     root = tk.Tk()
     app = QuizApp(root, words)
     root.mainloop()
